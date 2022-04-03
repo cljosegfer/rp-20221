@@ -11,7 +11,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 img = cv.imread('placas.jpg', 0)
-target = 'target0.jpg'
+target = 'target2.png'
 template = cv.imread(target, 0)
 norma = 'L1'
 
