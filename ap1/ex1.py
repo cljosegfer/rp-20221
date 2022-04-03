@@ -13,6 +13,7 @@ from matplotlib import pyplot as plt
 img = cv.imread('placas.jpg', 0)
 target = 'target0.jpg'
 template = cv.imread(target, 0)
+norma = 'L1'
 
 W, H = img.shape[::-1]
 w, h = template.shape[::-1]
@@ -26,7 +27,10 @@ best = None
 for i in range(H - h + 1):
     for j in range(W - w + 1):
         window = img[i:(i + h), j:(j + w)]
-        norm = np.linalg.norm(window - template)
+        if norma == 'L1':
+            norm = np.linalg.norm(window - template, ord = 1)
+        else:
+            norm = np.linalg.norm(window - template)
         cost[i:(i + h), j:(j + w)] = np.minimum(norm, cost[i:(i + h), j:(j + w)])
         
         if norm < minimo:
@@ -51,4 +55,5 @@ plt.subplot(121),plt.imshow(cost, cmap = 'gray')
 plt.title('Superfície de Custo'), plt.xticks([]), plt.yticks([])
 plt.subplot(122),plt.imshow(img, cmap = 'gray')
 plt.title('Região Encontrada'), plt.xticks([]), plt.yticks([])
-plt.savefig('fig/result-' + target[:-4] + '.png')
+plt.suptitle('Métrica: ' + norma)
+plt.savefig('fig/' + norma + '-' + target[:-4] + '.png')
