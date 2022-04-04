@@ -21,20 +21,20 @@ def similar(a, b):
 
 norma = 'CNN'
 
-targets = ['4BEX972', '1890', 'JUX580', '763FYK']
+targets = ['JUX580', '763FYK']
 # target = 'JUX580'
 
 for target in targets:
     img = cv.imread('placas.jpg', 0)
-    template = np.zeros(shape = (100, 100), dtype = np.int8)
+    template = np.zeros(shape = (125, 175), dtype = np.int8)
 
     W, H = img.shape[::-1]
     w, h = template.shape[::-1]
 
     img = np.array(img, dtype = np.int8)
-    cost = np.ones(shape = img.shape) * 1e6
+    cost = np.ones(shape = img.shape)
 
-    minimo = 1e6
+    minimo = 1
     best = None
     print(target)
     for i in tqdm(range(H - h + 1)):
@@ -71,7 +71,8 @@ for target in targets:
     cv.rectangle(img, top_left, bottom_right, 255, 2)
 
     # cost
-    cost *= (255.0/cost.max())
+    # cost *= (255.0/cost.max())
+    cost *= (255.0)
     cost = np.array(cost, dtype = np.uint8)
 
     # plot
