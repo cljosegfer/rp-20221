@@ -4,7 +4,9 @@ import pandas as pd
 from sklearn.metrics import silhouette_samples, silhouette_score
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('data/raw.csv', header = None).values
+option = 'raw'
+# option = 'trans'
+data = pd.read_csv('data/' + option + '.csv', header = None).values
 
 X = data[:, 0:-1]
 Y = data[:, -1]
@@ -35,4 +37,4 @@ for i, k in enumerate(np.unique(Y)):
     # ax.set_xlim([-1, 1])
 ax.axvline(score, linestyle = '--', 
            linewidth = 2, color = 'red')
-plt.savefig('fig/silh.png')
+plt.savefig('fig/silh-' + option + '.png')
