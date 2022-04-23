@@ -19,13 +19,13 @@ silh_samples = silhouette_samples(X = X, labels = Y)
 fig, ax = plt.subplots(1, 1, figsize = (5, 5))
 y_ticks = []
 y_lower = y_upper = 0
-color = ['blue', 'green']
+color = ['black', 'red']
 for i, k in enumerate(np.unique(Y)):
     cluster = silh_samples[Y == k]
     cluster.sort()
     y_upper += len(cluster)
     
-    ax.barh(range(y_lower, y_upper), cluster,height = 1)
+    ax.barh(range(y_lower, y_upper), cluster, height = 1, color = color[i])
     
     # ax.text(-0.03, (y_lower + y_upper) / 2, str(i + 1))
     y_lower += len(cluster)
@@ -36,5 +36,5 @@ for i, k in enumerate(np.unique(Y)):
                 linewidth = 1, color = color[i])
     # ax.set_xlim([-1, 1])
 ax.axvline(score, linestyle = '--', 
-           linewidth = 2, color = 'red')
+           linewidth = 2, color = 'blue')
 plt.savefig('fig/silh-' + option + '.png')
