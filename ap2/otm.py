@@ -48,6 +48,6 @@ L, log = otm(silh, L0, lr = -1, MAX_EPOCAS = 100)
 plt.plot(log)
 plt.savefig('fig/loss.png')
 
-# # write
-# X = np.dot(L, X.T).T
-# pd.DataFrame(np.concatenate((X, Y.reshape(-1, 1)), axis = 1)).to_csv('data/trans.csv', header = None, index = None)
+# write
+X = np.dot(L, X.T).T
+pd.DataFrame(np.concatenate((X, Y.reshape(-1, 1)), axis = 1)).to_csv('data/trans.csv', header = None, index = None)

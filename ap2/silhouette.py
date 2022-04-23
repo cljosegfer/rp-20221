@@ -4,8 +4,8 @@ import pandas as pd
 from sklearn.metrics import silhouette_samples, silhouette_score
 import matplotlib.pyplot as plt
 
-option = 'raw'
-# option = 'trans'
+# option = 'raw'
+option = 'trans'
 data = pd.read_csv('data/' + option + '.csv', header = None).values
 
 X = data[:, 0:-1]
