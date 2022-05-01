@@ -8,6 +8,7 @@ library("MASS")
 # library(mvtnorm)
 library(Rcpp)
 sourceCpp('GGClassification_gabriel_graph.cpp')
+library(mlbench)
 
 gglocal = function(distance_array){
   n = nrow(distance_array)
@@ -40,10 +41,10 @@ sd2 <- 0.5
 cov2 <- diag(sd2, d)
 X2 <- mvrnorm(n = npontos, rep(m2, d), cov2)
 
-# plot
-par(pty = 's', bty = 'n')
-plot(X1, xlim = c(0, 9), ylim = c(0, 9), xlab = 'X1', ylab = 'X2', col = 'blue', pch = 20)
-points(X2, col = 'red', pch = 20)
+# # plot
+# par(pty = 's', bty = 'n')
+# plot(X1, xlim = c(0, 9), ylim = c(0, 9), xlab = 'X1', ylab = 'X2', col = 'blue', pch = 20)
+# points(X2, col = 'red', pch = 20)
 
 # gg
 X <- rbind(X1, X2)
@@ -74,10 +75,10 @@ sd2 <- 0.9
 cov2 <- diag(sd2, d)
 X2 <- mvrnorm(n = npontos, rep(m2, d), cov2)
 
-# plot
-par(pty = 's', bty = 'n')
-plot(X1, xlim = c(0, 9), ylim = c(0, 9), xlab = 'X1', ylab = 'X2', col = 'blue', pch = 20)
-points(X2, col = 'red', pch = 20)
+# # plot
+# par(pty = 's', bty = 'n')
+# plot(X1, xlim = c(0, 9), ylim = c(0, 9), xlab = 'X1', ylab = 'X2', col = 'blue', pch = 20)
+# points(X2, col = 'red', pch = 20)
 
 # gg
 X <- rbind(X1, X2)
@@ -94,3 +95,12 @@ localgg <- gglocal(distance)
 data <- cbind(X, D)
 write.table(data, file = 'data/overlap.csv', sep = ',', row.names = FALSE, col.names = FALSE)
 write.table(gg, file = 'data/overlap-gg.csv', sep = ',', row.names = FALSE, col.names = FALSE)
+
+# spirals
+data <- mlbench.spirals(n = 1000, cycles = 1, sd = 0.05)
+X <- as.data.frame(data['x'])
+y <- as.data.frame(data['classes'])
+
+# write
+csv <- cbind(X, y)
+write.table(csv, file = 'data/spirals.csv', sep = ',', row.names = FALSE, col.names = FALSE)
