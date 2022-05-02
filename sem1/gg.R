@@ -49,7 +49,7 @@ for (i in seq(length(datasets))){
     for (k in 1:nrow(gg)){
       cluster <- class_train == class_train[k]
       intrusos <- gg[k, !cluster]
-      if (sum(intrusos) == 0){
+      if (sum(intrusos) != 0){
         edited <- append(edited, k)
       }
     }
