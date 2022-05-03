@@ -130,8 +130,10 @@ class chip:
         for i in indexes_to_train:
             idx = np.where(self.X_train[:,:] == X_bound[i, :])
             idx = idx[0][0]
+            # print(idx)
+            # print(bound_elements)
             pm_idx = int(np.where(bound_elements == idx)[0][0] / 2) # aqui peguei o primeiro pq é mais facil
-            # print(idx, pm_idx)
+            print(idx, pm_idx)
             pm = self.midpoints[pm_idx]
             h = np.linalg.norm(X_bound[i, :] - pm) / 3
             u = np.sqrt(sum((x - X_bound[i,:])**2))/h
