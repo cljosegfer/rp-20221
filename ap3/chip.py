@@ -120,7 +120,7 @@ class chip:
         return K   
         
     # My KDE Implementation
-    def my_kde(self, x, X_bound, indexes_to_train, h):
+    def my_kde(self, x, X_bound, indexes_to_train):
         bound_elements = [item for sublist in self.bound_hyper for item in sublist]
         # print(bound_elements)
         N_train = X_bound.shape[0]
@@ -139,7 +139,7 @@ class chip:
         return K_total/N_train
        
     
-    def predict(self, X: np.ndarray, h: float) -> np.ndarray:
+    def predict(self, X: np.ndarray) -> np.ndarray:
         bound_elements = [item for sublist in self.bound_hyper for item in sublist]
         bound_elements = list(set(bound_elements))
         X_train = self.X_train
@@ -163,7 +163,7 @@ class chip:
             pdf = np.zeros(n)
             for i in range(0,n):
                 indexes = np.where(y_bound==np.unique(y_bound)[i])[0]
-                pdf[i] = self.my_kde(x, X_bound, indexes, h)
+                pdf[i] = self.my_kde(x, X_bound, indexes)
                 K[i] = pdf[i] * p_ci[i]
             y_hat[index] = np.unique(y_train)[K.argmax()]
             index += 1
