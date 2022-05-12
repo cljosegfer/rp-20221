@@ -13,7 +13,8 @@ import matplotlib.pyplot as plt
 
 # read
 # data = pd.read_csv('data/spirals.csv', header = None).values
-data = pd.read_csv('data/overlap.csv', header = None).values
+# data = pd.read_csv('data/overlap.csv', header = None).values
+data = pd.read_csv('data/trans.csv', header = None).values
 
 X = data[:, 0:-1]
 Y = data[:, -1]
