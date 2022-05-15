@@ -7,10 +7,10 @@ sourceCpp('GGClassification_model.cpp')
 sourceCpp('GGClassification_predict.cpp')
 
 # params
-dir_path = 'data/temp_bases/temp'
-metodo <- 'base'
-# metodo <- 'silh'
-# dir_path <- 'data/trans'
+# dir_path = 'data/temp_bases/temp'
+# metodo <- 'base'
+metodo <- 'silh'
+dir_path <- 'data/trans'
 datasets <- c('australian',
               'banknote',
               'breastcancer',
