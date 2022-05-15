@@ -1,0 +1,30 @@
+australian & $0.85 \pm 0.04$ & $0.86 \pm 0.05$ \\
+\hline
+banknote & $0.99 \pm 0.01$ & $0.88 \pm 0.19$ \\
+\hline
+breastcancer & $0.96 \pm 0.03$ & $0.98 \pm 0.01$ \\
+\hline
+breastHess & $0.81 \pm 0.12$ & $0.8 \pm 0.1$ \\
+\hline
+bupa & $0.63 \pm 0.1$ & $0.64 \pm 0.08$ \\
+\hline
+climate & $0.84 \pm 0.07$ & $0.73 \pm 0.16$ \\
+\hline
+diabetes & $0.72 \pm 0.04$ & $0.72 \pm 0.07$ \\
+\hline
+fertility & $0.59 \pm 0.26$ & $0.51 \pm 0.11$ \\
+\hline
+german & $0.67 \pm 0.04$ & $0.67 \pm 0.06$ \\
+\hline
+golub & $0.77 \pm 0.17$ & $0.77 \pm 0.15$ \\
+\hline
+haberman & $0.56 \pm 0.09$ & $0.63 \pm 0.11$ \\
+\hline
+heart & $0.8 \pm 0.08$ & $0.8 \pm 0.07$ \\
+\hline
+ILPD & $0.57 \pm 0.09$ & $0.62 \pm 0.07$ \\
+\hline
+parkinsons & $0.9 \pm 0.15$ & $0.81 \pm 0.13$ \\
+\hline
+sonar & $0.88 \pm 0.08$ & $0.77 \pm 0.1$ \\
+\hline

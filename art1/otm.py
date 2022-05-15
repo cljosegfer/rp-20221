@@ -90,4 +90,4 @@ for dataset in datasets:
         old.append(silhouette_score(X = X, labels = y))
         score.append(silhouette_score(X = np.dot(L, X.T).T, labels = y))
     log.append([dataset, np.mean(old), np.mean(score), np.std(score)])
-np.savetxt('otm-log.csv', log, delimiter = ',', fmt = '%s')
+np.savetxt('output/otm-log.csv', log, delimiter = ',', fmt = '%s')

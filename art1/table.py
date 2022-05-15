@@ -13,7 +13,7 @@ import pandas as pd
 metodo = 'silh'
 auc = pd.read_csv('output/{}/coletivo.csv'.format(metodo))
 dis = pd.read_csv('output/{}/d_coletivo.csv'.format(metodo)).drop(['Unnamed: 0'], axis = 1)
-silh = pd.read_csv('otm-log.csv', header = None).drop([0], axis = 1)
+silh = pd.read_csv('output/otm-log.csv', header = None).drop([0], axis = 1)
 
 # table
 log = []
@@ -31,4 +31,4 @@ for (_, s1), (_, s2), (_, s3) in zip(auc.iterrows(), dis.iterrows(), silh.iterro
         string = r'{} & ${} \pm {}$ & ${} \pm {}$ & ${} \pm {}$ \\'.format(dataset, auc_mu, auc_sd, score_mu, score_sd, dis_mu, dis_sd)
     log.append(string)
     log.append('\hline')
-np.savetxt('table.csv', log, fmt = '%s')
+np.savetxt('output/table/table.csv', log, fmt = '%s')
