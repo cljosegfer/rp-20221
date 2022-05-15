@@ -30,6 +30,7 @@ K <- 10
 
 # report
 relatorio <- matrix(0, ncol = length(datasets), nrow = K)
+discard <- matrix(0, ncol = length(datasets), nrow = K)
 
 # processo
 for (i in seq(length(datasets))){
@@ -61,6 +62,10 @@ for (i in seq(length(datasets))){
                    datasets[i], i, length(datasets),
                    fold_n, K)
     print(log)
+    
+    # discard
+    d <- 1 - length(modelo$Filtrado[, 1]) / length(train[, 1])
+    discard[fold_n, i] <- d
 
     # report
     relatorio[fold_n, i] <- auc(roc_obj)
@@ -74,6 +79,14 @@ coletivo <- data.frame(apply(X = individual, MARGIN = 2, mean),
                        apply(X = individual, MARGIN = 2, sd))
 colnames(coletivo) <- c('mean', 'sd')
 
+d_individual <- data.frame(discard)
+colnames(d_individual) <- datasets
+d_coletivo <- data.frame(apply(X = d_individual, MARGIN = 2, mean),
+                       apply(X = d_individual, MARGIN = 2, sd))
+colnames(d_coletivo) <- c('mean', 'sd')
+
 # write
 write.csv(individual, paste('output', metodo, 'individual.csv', sep = '/'))
 write.csv(coletivo, paste('output', metodo, 'coletivo.csv', sep = '/'))
+write.csv(d_individual, paste('output', metodo, 'd_individual.csv', sep = '/'))
+write.csv(d_coletivo, paste('output', metodo, 'd_coletivo.csv', sep = '/'))
