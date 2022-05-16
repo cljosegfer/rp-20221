@@ -15,6 +15,15 @@ silh <- silh[, 3] - silh[, 2]
 dis <- dis_s[, 2] - dis_d[, 2]
 
 # plot
+png(file = 'fig/auc_silh.png',
+    width=600, height=425)
 plot(silh, auc)
+dev.off()
+png(file = 'fig/auc_dis.png',
+    width=600, height=425)
 plot(dis, auc)
+dev.off()
+png(file = 'fig/dis_silh.png',
+    width=600, height=425)
 plot(silh, dis)
+dev.off()
