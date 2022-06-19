@@ -1,0 +1,16 @@
+,base,lmnn,lfda
+australian,0.48,0.49,0.46
+banknote,0.45,0.45,0.45
+breastcancer,0.29,0.29,0.29
+breastHess,0.36,0.36,0.34
+bupa,0.48,0.53,0.5
+climate,0.55,0.62,0.62
+diabetes,0.52,0.52,0.53
+fertility,0.4,0.28,0.43
+german,0.47,0.46,0.47
+golub,0.47,0.42,0.4
+haberman,0.42,0.47,0.52
+heart,0.5,0.49,0.48
+ILPD,0.45,0.42,0.47
+parkinsons,0.36,0.3,0.39
+sonar,0.49,0.52,0.52

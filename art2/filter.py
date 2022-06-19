@@ -97,7 +97,7 @@ for mt, metodo in enumerate(metodos):
         report2[ds, mt] = np.around(discard, decimals = 2)
 
 # export
-relatorio = pd.DataFrame(report, columns = metodos)
-relatorio.to_csv('output/indices/{}.csv'.format(indice), index = datasets)
-relatorio = pd.DataFrame(report2, columns = metodos)
-relatorio.to_csv('output/indices/{}.csv'.format(indice2), index = datasets)
+relatorio = pd.DataFrame(report, columns = metodos, index = datasets)
+relatorio.to_csv('output/indices/{}.csv'.format(indice))
+relatorio = pd.DataFrame(report2, columns = metodos, index = datasets)
+relatorio.to_csv('output/indices/{}.csv'.format(indice2))

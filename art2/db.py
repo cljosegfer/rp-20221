@@ -66,5 +66,5 @@ for mt, metodo in enumerate(metodos):
         report[ds, mt] = np.around(np.mean(scores), decimals = 2)
 
 # export
-relatorio = pd.DataFrame(report, columns = metodos)
-relatorio.to_csv('output/indices/{}.csv'.format(indice), index = datasets)
+relatorio = pd.DataFrame(report, columns = metodos, index = datasets)
+relatorio.to_csv('output/indices/{}.csv'.format(indice))
