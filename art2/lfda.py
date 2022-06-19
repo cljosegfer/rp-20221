@@ -50,7 +50,7 @@ for dataset in datasets:
         classTest = data_mat['data']['classTest'][0][0].ravel()
         
         # model
-        model = LFDA(n_components = train.shape[1] - 1)
+        model = LFDA(k = min(7, train.shape[1] - 1), n_components = train.shape[1] - 1)
         model.fit(train, classTrain)
         
         # transform
