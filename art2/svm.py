@@ -15,7 +15,6 @@ from sklearn.metrics import roc_auc_score
 
 # params
 dir_path = 'data'
-out_path = 'output'
 datasets = ('australian', 
             'banknote', 
             'breastcancer', 
