@@ -67,4 +67,4 @@ for mt, metodo in enumerate(metodos):
 
 # export
 relatorio = pd.DataFrame(report, columns = metodos)
-relatorio.to_csv('output/indices/{}.csv'.format(indice), index = False)
+relatorio.to_csv('output/indices/{}.csv'.format(indice), index = datasets)
