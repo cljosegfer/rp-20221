@@ -19,7 +19,7 @@ classificadores <- c('svm',
 # indices <- c('q', 
 #              'discard')
 
-indices <- c('discard')
+indices <- c('q')
 
 # processo
 primeiro = TRUE
