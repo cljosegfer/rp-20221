@@ -15,7 +15,7 @@ metodos = ('svm',
            'clas_composto')
 
 # read
-metodo = 'clas_composto'
+metodo = 'svm_composto'
 data = pd.read_csv('output/lm/{}.csv'.format(metodo), index_col = 0)
 
 # table

@@ -10,13 +10,21 @@ metodos <- c('base',
 classificadores <- c('svm', 
              'clas')
 
-indices <- c('calinski_harabasz', 
-             'davies_bouldin', 
-             'silhouette', 
-             'q', 
-             'discard')
+# indices <- c('calinski_harabasz', 
+#              'davies_bouldin', 
+#              'silhouette', 
+#              'q', 
+#              'discard')
+
+# indices <- c('q', 
+#              'discard')
+
+indices <- c('discard')
 
 # processo
+primeiro = TRUE
+img_path <- sprintf('%s/fig/reg_%s.png', dir_path, indices)
+png(file = img_path, width = 612, height = 525)
 for (classificador in classificadores){
   # report
   report <- matrix(0, nrow = length(indices) + 1, ncol = 2*length(metodos))
@@ -47,6 +55,17 @@ for (classificador in classificadores){
     # report
     report[, 2*mt - 1] <- coef
     report[, 2*mt] <- pvalor
+    
+    if (primeiro == TRUE) {
+      plot(X, y, type = 'p', xlim = c(0, 1), ylim = c(0, 1), 
+           xlab = 'q', ylab = 'AUC')
+      primeiro = FALSE
+    }
+    else {
+      points(X, y, xlim = c(0, 1), ylim = c(0, 1))
+    }
+    abline(modelo, col = which(classificadores == classificador) + 1)
+    # par(new=TRUE)
   }
   
   # export
@@ -63,3 +82,4 @@ for (classificador in classificadores){
   filename <- sprintf('output/lm/%s_composto.csv', classificador)
   write.csv(coletivo, filename)
 }
+dev.off()
